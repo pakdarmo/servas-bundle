@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: servas
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: servas
+  template:
+    metadata:
+      labels:
+        app: servas
+    spec:
+      containers:
+        - name: servas
+          image: "{{ .Values.servas.image.repository }}:{{ .Values.servas.image.tag }}"
+          imagePullPolicy: {{ .Values.servas.image.pullPolicy }}
+          env:
+            - name: SERVAS_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: servas-secret
+                  key: SERVAS_KEY
+            - name: DATABASE_URL
+              value: "{{ .Values.servas.env.DATABASE_URL }}"
+          ports:
+            - containerPort: 80
