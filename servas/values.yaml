@@ -7,7 +7,7 @@ servas:
     tag: latest
     pullPolicy: IfNotPresent
   env:
-    DATABASE_URL: "mysql://servas_user:password@mydb-mariadb/servas"
+    DATABASE_URL: "mysql://servas_user:password@servas-repo-servas-mariadb/servas"
     APP_DEBUG: "true"
     APP_ENV: "local"
     APP_KEY: "base64:xP9uY5cplXL5lw0rCRUOx2kMXEAVfzNzH5XjA+6a0VM="
