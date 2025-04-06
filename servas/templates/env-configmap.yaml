@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: servas-env
+data:
+  .env: |
+    APP_KEY={{ .Values.servas.env.APP_KEY }}
+    APP_ENV={{ .Values.servas.env.APP_ENV | default "local" }}
+    APP_DEBUG={{ .Values.servas.env.APP_DEBUG | default "true" }}
+    SERVAS_KEY={{ .Values.servas.env.SERVAS_KEY }}
+    DATABASE_URL={{ .Values.servas.env.DATABASE_URL }}
+

@@ -26,3 +26,11 @@ spec:
               value: "{{ .Values.servas.env.DATABASE_URL }}"
           ports:
             - containerPort: 80
+          volumeMounts:
+            - name: env-volume
+              mountPath: /app/.env
+              subPath: .env
+      volumes:
+        - name: env-volume
+          configMap:
+            name: servas-env
