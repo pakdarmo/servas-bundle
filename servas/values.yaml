@@ -3,8 +3,8 @@
 # Declare variables to be passed into your templates.
 servas:
   image:
-    repository: servas
-    tag: local
+    repository: beromir/servas
+    tag: latest
     pullPolicy: IfNotPresent
   env:
     DATABASE_URL: "mysql://servas_user:password@mydb-mariadb/servas"
